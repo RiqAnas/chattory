@@ -1,3 +1,5 @@
+import 'dart:io';
+
 enum AuthMode { Signup, Login }
 
 class Aformdata {
@@ -5,6 +7,7 @@ class Aformdata {
   String email = '';
   String pass = '';
   AuthMode _mode = AuthMode.Login;
+  File? image;
 
   bool get isLogin {
     return _mode == AuthMode.Login;

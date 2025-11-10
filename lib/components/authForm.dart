@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:novoprojchat/models/aFormData.dart';
+import 'package:novoprojchat/components/userImagePicker.dart';
+import 'package:novoprojchat/core/models/aFormData.dart';
 
 class Authform extends StatefulWidget {
   final void Function(Aformdata) onSubmit;
@@ -12,11 +15,32 @@ class Authform extends StatefulWidget {
 class _AuthformState extends State<Authform> {
   final _formKey = GlobalKey<FormState>();
   final _authData = Aformdata();
+  File? _imager;
+
+  void _showError(String msg) {
+    ScaffoldMessenger.of(context).hideCurrentSnackBar();
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(msg),
+        backgroundColor: Theme.of(context).disabledColor,
+      ),
+    );
+  }
 
   void _submit() {
     final isValid = _formKey.currentState?.validate() ?? false;
     if (!isValid) return;
+
+    if (_imager == null && _authData.isSignup) {
+      return _showError("Imagem não cadastrada!");
+    }
+
     widget.onSubmit(_authData);
+  }
+
+  //Exemplo de como funciona uma função de atribuição indireta
+  void _handleImagePick(File image) {
+    _imager = image;
   }
 
   @override
@@ -30,6 +54,9 @@ class _AuthformState extends State<Authform> {
           key: _formKey,
           child: Column(
             children: [
+              if (_authData.isSignup)
+                Userimagepicker(onImagePick: _handleImagePick),
+
               if (_authData.isSignup)
                 TextFormField(
                   //atribui um valor para diferenciar cada campo

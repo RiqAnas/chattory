@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:novoprojchat/pages/authPage.dart';
-import 'package:novoprojchat/pages/loadingPage.dart';
+import 'package:novoprojchat/pages/authOrAppPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrangeAccent),
       ),
-      home: Authpage(),
+      home: Authorapppage(),
     );
   }
 }

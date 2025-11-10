@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:novoprojchat/components/authForm.dart';
-import 'package:novoprojchat/models/aFormData.dart';
+import 'package:novoprojchat/core/models/aFormData.dart';
+import 'package:novoprojchat/core/services/auth/authService.dart';
 
 class Authpage extends StatefulWidget {
   @override
@@ -10,14 +11,27 @@ class Authpage extends StatefulWidget {
 class _AuthpageState extends State<Authpage> {
   bool _isLoading = false;
 
-  void _handleSubmit(Aformdata formData) {
-    setState(() {
-      _isLoading = true;
-    });
-    print(formData.email);
-    setState(() {
-      _isLoading = false;
-    });
+  Future<void> _handleSubmit(Aformdata formData) async {
+    try {
+      setState(() {
+        _isLoading = true;
+      });
+      if (formData.isLogin) {
+        await Authservice().login(formData.email, formData.pass);
+      } else {
+        await Authservice().signUp(
+          formData.nome,
+          formData.email,
+          formData.pass,
+          formData.image!,
+        );
+      }
+    } catch (e) {
+    } finally {
+      setState(() {
+        _isLoading = false;
+      });
+    }
   }
 
   @override
