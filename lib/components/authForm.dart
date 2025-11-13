@@ -70,6 +70,7 @@ class _AuthformState extends State<Authform> {
                     if (name.trim().length < 5) {
                       return 'Nome deve ter no mínimo 6 caracters';
                     }
+                    return null;
                   },
                 ),
               TextFormField(
@@ -82,6 +83,7 @@ class _AuthformState extends State<Authform> {
                   if (!email.contains('@')) {
                     return 'Email inválido';
                   }
+                  return null;
                 },
               ),
               TextFormField(
@@ -95,6 +97,7 @@ class _AuthformState extends State<Authform> {
                   if (password.trim().length < 5) {
                     return 'Senha deve ter no mínimo 6 caracters';
                   }
+                  return null;
                 },
               ),
               SizedBox(height: 12),

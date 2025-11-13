@@ -8,7 +8,7 @@ import 'package:novoprojchat/core/services/auth/authService.dart';
 class Authmockservice implements Authservice {
   static final _defaultUser = Chatuser(
     email: "opa@gmail.com",
-    id: '1',
+    id: '123',
     imageUrl:
         'https://preview.redd.it/l0ergarfzst61.png?auto=webp&s=5de076eac09bb645d58b11cd8ce82f99ec487329',
     name: 'teste',
@@ -58,7 +58,7 @@ class Authmockservice implements Authservice {
   }
 
   static void _updateUser(Chatuser? user) {
-    _currentUser = null;
+    _currentUser = user;
     _controller?.add(_currentUser);
   }
 }
