@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "949233826127",
+    "project_id": "ttestechat-e1928",
+    "storage_bucket": "ttestechat-e1928.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:949233826127:android:2ce58c0332055fed876d3a",
+        "android_client_info": {
+          "package_name": "com.example.novoprojchat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAWIv4dP5Ks8McuTwpd7Fx3ted5F8eE1O8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

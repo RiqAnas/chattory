@@ -15,4 +15,14 @@ class Charmessage {
     required this.userImageURL,
     required this.userName,
   });
+
+  Map<String, dynamic> toJson() {
+    return {
+      'text': text,
+      'createdAt': createdAt,
+      'userId': userId,
+      'userImageUrl': userImageURL,
+      'userName': userName,
+    };
+  }
 }

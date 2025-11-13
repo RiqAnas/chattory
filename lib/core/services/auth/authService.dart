@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:novoprojchat/core/models/chatUser.dart';
-import 'package:novoprojchat/core/services/auth/authMockService.dart';
+import 'package:novoprojchat/core/services/auth/authFirebaseService.dart';
 
 abstract class Authservice {
   Chatuser? get currentUser;
@@ -12,6 +12,6 @@ abstract class Authservice {
   Future<void> logout();
 
   factory Authservice() {
-    return Authmockservice();
+    return Authfirebaseservice();
   }
 }
